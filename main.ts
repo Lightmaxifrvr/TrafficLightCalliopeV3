@@ -1,6 +1,13 @@
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+    if (make == 0) {
+        make = 1
+    } else {
+        make = 0
+    }
+})
+let make = 0
 let LightState = 0
 basic.forever(function () {
-    let make = 0
     if (make == 1) {
         basic.showLeds(`
             . . . . .
