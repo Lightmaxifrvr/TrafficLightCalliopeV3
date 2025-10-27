@@ -8,6 +8,15 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 let make = 0
 let LightState = 0
 basic.forever(function () {
+    if (LightState == 1) {
+        LightState += 1
+        basic.pause(1000)
+    } else {
+        LightState += 1
+        basic.pause(5000)
+    }
+})
+basic.forever(function () {
     if (make == 1) {
         basic.showLeds(`
             . . . . .
@@ -23,6 +32,16 @@ basic.forever(function () {
             # # # # #
             # # # # #
             # # # # #
+            `)
+    }
+    if (LightState == 2) {
+        make = 0
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
             `)
     }
 })
