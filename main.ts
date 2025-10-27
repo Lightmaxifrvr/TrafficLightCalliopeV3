@@ -8,15 +8,6 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 let make = 0
 let LightState = 0
 basic.forever(function () {
-    if (LightState == 1) {
-        LightState += 1
-        basic.pause(1000)
-    } else {
-        LightState += 1
-        basic.pause(5000)
-    }
-})
-basic.forever(function () {
     if (make == 1) {
         basic.showLeds(`
             . . . . .
@@ -25,13 +16,15 @@ basic.forever(function () {
             . . . . .
             . . . . .
             `)
+        music.playTone(988, music.beat(BeatFraction.Whole))
         basic.pause(100)
+        music.playTone(131, music.beat(BeatFraction.Whole))
         basic.showLeds(`
+            . # # # .
             # # # # #
             # # # # #
-            # # # # #
-            # # # # #
-            # # # # #
+            # # # # .
+            . # # # .
             `)
     }
     if (LightState == 2) {
@@ -46,9 +39,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (LightState > 2) {
-        LightState = 0
-    }
     if (LightState == 0) {
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
@@ -64,4 +54,18 @@ basic.forever(function () {
     } else {
     	
     }
+})
+basic.forever(function () {
+    if (LightState == 2) {
+        basic.pause(10000)
+        LightState += -1
+        basic.pause(5000)
+        LightState += -1
+    } else {
+        basic.pause(5000)
+        LightState += 1
+    }
+})
+basic.forever(function () {
+	
 })
