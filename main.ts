@@ -1,3 +1,5 @@
+let make = 0
+let LightState = 0
 input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     if (make == 0) {
         make = 1
@@ -5,8 +7,6 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
         make = 0
     }
 })
-let make = 0
-let LightState = 0
 basic.forever(function () {
     if (make == 1) {
         basic.showLeds(`
