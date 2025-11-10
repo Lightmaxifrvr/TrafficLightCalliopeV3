@@ -1,3 +1,6 @@
+make = 0
+LightState = 0
+
 def on_button_a():
     global make
     if make == 0:
@@ -5,9 +8,6 @@ def on_button_a():
     else:
         make = 0
 input.on_button_event(Button.A, input.button_event_click(), on_button_a)
-
-make = 0
-LightState = 0
 
 def on_forever():
     global make

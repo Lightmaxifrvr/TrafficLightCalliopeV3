@@ -1,13 +1,16 @@
 let make = 0
 let LightState = 0
-input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function on_button_a() {
+    
     if (make == 0) {
         make = 1
     } else {
         make = 0
     }
+    
 })
-basic.forever(function () {
+basic.forever(function on_forever() {
+    
     if (make == 1) {
         basic.showLeds(`
             . . . . .
@@ -27,6 +30,7 @@ basic.forever(function () {
             . # # # .
             `)
     }
+    
     if (LightState == 2) {
         make = 0
         basic.showLeds(`
@@ -37,8 +41,9 @@ basic.forever(function () {
             . . . . .
             `)
     }
+    
 })
-basic.forever(function () {
+basic.forever(function on_forever2() {
     if (LightState == 0) {
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 0)
@@ -52,10 +57,12 @@ basic.forever(function () {
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 1)
     } else {
-    	
+        
     }
+    
 })
-basic.forever(function () {
+basic.forever(function on_forever3() {
+    
     if (LightState == 2) {
         basic.pause(10000)
         LightState += -1
@@ -65,7 +72,8 @@ basic.forever(function () {
         basic.pause(5000)
         LightState += 1
     }
+    
 })
-basic.forever(function () {
-	
+basic.forever(function on_forever4() {
+    
 })
